@@ -1,0 +1,21 @@
+version: '3'
+services:
+  todotests:
+    build: todotests
+    environment:
+      FRONT_HOST: todofront
+    depends_on:
+      - todofront
+      - todoback
+  todofront:
+    build: todofrontend
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - todoback
+    environment:
+      FRONT_HOST: todoback
+  todoback:
+    build: todobackend
+    ports: 
+      - "3001:3001"
