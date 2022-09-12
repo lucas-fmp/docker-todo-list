@@ -1,6 +1,6 @@
-FROM node:14.4-alpine3.11
+FROM node:14
 
-WORKDIR /backend
+WORKDIR /backend/
 
 EXPOSE 3001
 
@@ -8,4 +8,4 @@ ADD node_modules.tar.gz .
 
 COPY . .
 
-RUN npm install
+ENTRYPOINT [ "npm" , "start"]
